@@ -44,6 +44,10 @@ const generateRandomName = (length) => {
   return result;
 };
 
+app.get("/", (req, res) => {
+  res.send("<h1>File Upload API</h1>");
+});
+
 app.post("/upload", upload.single("file"), (req, res) => {
   if (!req.file) {
     return res.status(400).send({ message: "No file uploaded." });
